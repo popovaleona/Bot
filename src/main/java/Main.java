@@ -15,7 +15,7 @@ public class Main {
             botOptions.setProxyPort(1080);
             botOptions.setProxyType(DefaultBotOptions.ProxyType.SOCKS5);
             telegramBotsApi.registerBot(new TelegramBot(botOptions));
-        } catch (TelegramApiException e) {comm
+        } catch (TelegramApiException e) {
             e.printStackTrace();
         }
     }
