@@ -11,11 +11,11 @@ public class Main {
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
         try {
             DefaultBotOptions botOptions = ApiContext.getInstance(DefaultBotOptions.class);
-            botOptions.setProxyHost("124.158.175.170");
-            botOptions.setProxyPort(8080);
-            botOptions.setProxyType(DefaultBotOptions.ProxyType.HTTP);
+            botOptions.setProxyHost("96.96.1.165");
+            botOptions.setProxyPort(1080);
+            botOptions.setProxyType(DefaultBotOptions.ProxyType.SOCKS5);
             telegramBotsApi.registerBot(new TelegramBot(botOptions));
-        } catch (TelegramApiException e) {
+        } catch (TelegramApiException e) {comm
             e.printStackTrace();
         }
     }
