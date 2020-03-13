@@ -55,14 +55,14 @@ public class DBManager {
                             "Шаг 2 : обжарьте морковь , лук и чеснок на медленном огне \n" +
                             " Шаг 3 : варить на среднем огне 30 минут")
             );
+    Map<Integer,Food> mapFood=new HashMap<>();
+    Map<String,Food> NameFood=new HashMap<>();
     DBManager(DBContext db){
-        Map<Integer,Food> mapItalian=new HashMap<>();
-        for (Food food:foodList){
-            mapItalian.put(food.getID(),food);
+         for (Food food:foodList){
+            mapFood.put(food.getID(),food);
         }
-        Map<String,Food> map2=new HashMap<>();
         for (Food food:foodList){
-            map2.put(food.getName(),food);
+            NameFood.put(food.getName(),food);
         }
   }
 
@@ -80,12 +80,8 @@ public class DBManager {
         return result;
     }
 
-    public List<Food> searchByName (String name){
-        List<Food> result=new ArrayList<>();
-        result.addAll(foodList);
-        result.removeIf(food->(!food.getName().toString().equals(name)));
-        return result;
+    public List<Food> searchByName (String name) {
+        return (List<Food>) NameFood.get(name);
+    }
     }
 
-
-}
