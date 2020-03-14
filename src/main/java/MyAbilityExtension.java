@@ -76,11 +76,8 @@ public class MyAbilityExtension implements AbilityExtension {
                 .locality(Locality.ALL)
                 .privacy(Privacy.PUBLIC)
                 .action(ctx->{
-                    dbManager.searchByName(ctx.firstArg().toUpperCase());
-                    for (Food food : dbManager.searchByName(ctx.firstArg().toUpperCase())){
-                        silent.send(food.getName()+"\nCuisine: " +food.getCousin().toString().toLowerCase()+"\n"+food.getType()+food.getDescription(),ctx.chatId());
-
-                    }
+                    Food currentFood=dbManager.searchByName(ctx.firstArg().toUpperCase());
+                    silent.send(currentFood.getName()+"\nCuisine: " +currentFood.getCousin().toString().toLowerCase()+"\n"+currentFood.getType()+currentFood.getDescription(),ctx.chatId());
                 })
                 .build();
     }

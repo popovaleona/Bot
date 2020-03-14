@@ -80,8 +80,8 @@ public class DBManager {
         return result;
     }
 
-    public List<Food> searchByName (String name) {
-        return (List<Food>) NameFood.get(name);
+    public Food searchByName (String name) {
+        return NameFood.get(name);
     }
     }
 
